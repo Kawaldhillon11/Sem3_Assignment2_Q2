@@ -3,14 +3,14 @@
 #include "includes/account/CreditAccount.h"
 
 namespace account{
-    CreditAccount::CreditAccount(std::string name, float cardLimit) :
+    CreditAccount::CreditAccount(std::string name, double cardLimit) :
     Account::Account(name)
     {
         limit = cardLimit;
         balance = 0;
     }
 
-    void CreditAccount::withdraw(float amount){
+    void CreditAccount::withdraw(double amount){
         if(amount < 1)
             throw new std::invalid_argument("Widthdrawal Amount cannot be less than $1");
         

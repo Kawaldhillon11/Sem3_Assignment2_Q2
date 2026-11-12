@@ -9,7 +9,7 @@ namespace account{
         balance = 0;
     }
 
-    void DebitAccount::withdraw(float amount){
+    void DebitAccount::withdraw(double amount){
         if(amount < 1)
             throw new std::invalid_argument("Widthdrawal Amount cannot be less than $1");
         

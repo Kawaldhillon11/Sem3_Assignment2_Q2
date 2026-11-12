@@ -9,40 +9,17 @@ namespace account
     class CreditAccount : public Account
     {
     private:
-        float limit;
-        float balance;
+        double limit;
+        double balance;
 
     public:
-        CreditAccount(std::string name, float cardLimit);
+        CreditAccount(std::string name, double cardLimit);
 
-        void withdraw(float amount);
+        void withdraw(double amount);
 
         ~CreditAccount();
     };
-    
-    CreditAccount::CreditAccount(std::string name, float cardLimit) :
-    Account::Account(name)
-    {
-        limit = cardLimit;
-        balance = 0;
-    }
 
-    void CreditAccount::withdraw(float amount){
-        if(amount < 1)
-            throw new std::invalid_argument("Widthdrawal Amount cannot be less than $1");
-        
-        float newBalance = balance + amount;
-        
-        if(newBalance > limit)
-            throw new std::invalid_argument("Insufficient Funds, Cannot widthdraw");
-        
-        balance = newBalance;
-    }
-    
-    CreditAccount::~CreditAccount()
-    {
-    }
-    
 } // namespace account
 
 

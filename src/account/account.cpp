@@ -20,7 +20,7 @@ namespace account {
         
     };
 
-    void Account::withdraw(float amount){
+    void Account::withdraw(double amount){
         
     }
     
