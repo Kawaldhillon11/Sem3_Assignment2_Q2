@@ -9,6 +9,10 @@ namespace account {
         accountCount++;
     }
 
+    int Account::getAccountNumber(){
+        return accountNumber;
+    }
+
 
     void Account::setHolderName(std::string name){
         if(name.empty())

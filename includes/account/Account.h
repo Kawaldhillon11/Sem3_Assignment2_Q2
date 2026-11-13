@@ -20,7 +20,7 @@ namespace account
 
         public:
             Account(std::string name);
-
+            int getAccountNumber();
             void virtual withdraw(double amount);
 
             ~Account();
