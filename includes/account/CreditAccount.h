@@ -11,11 +11,13 @@ namespace account
     private:
         double limit;
         double balance;
+        double cashBackEarned = 0;
 
     public:
         CreditAccount(std::string name, double cardLimit);
 
         void withdraw(double amount);
+        void setCashBackEarned(double cashBack);
 
         ~CreditAccount();
     };

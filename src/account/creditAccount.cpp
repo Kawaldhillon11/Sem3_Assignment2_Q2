@@ -21,6 +21,12 @@ namespace account{
         
         balance = newBalance;
     }
+
+    void CreditAccount::setCashBackEarned(double cashBack){
+        if(cashBack < 0)
+            throw new std::invalid_argument("Cannot accept negative values");
+        cashBackEarned += cashBack;
+    }
     
     CreditAccount::~CreditAccount()
     {
