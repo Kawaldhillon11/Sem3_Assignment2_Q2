@@ -26,6 +26,7 @@ namespace bank{
             throw new std::invalid_argument("Maximum no of accounts reached");
         
         accounts[noOfAccounts] = acc;
+        noOfAccounts++;
     }
 
     account::Account* Bank::getAccount(int accountNumber){
