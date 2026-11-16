@@ -16,6 +16,10 @@ namespace card{
         pin = pinNumber;
     }
 
+    int Card::getCardNumber(){
+        return cardNumber;
+    }
+
     bool Card::validatePin(std::string pinNumber){
         if(pinNumber.empty() || pin.length() < 4)
             throw new std::invalid_argument("Please Enter a Valid Pin (4 digits)");
