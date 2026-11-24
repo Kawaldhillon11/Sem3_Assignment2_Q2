@@ -9,7 +9,7 @@ namespace card{
         private:
             double cashbackPercent;
         public:
-            CreditCard(double cashbackPer, account::CreditAccount* acc, std::string pin);
+            CreditCard(double cashbackPer, account::CreditAccount* acc, std::string pin, int month, int year);
             void setCashBackPer(double per);
             void makePayment(double amount, std::string pin);
             ~CreditCard();

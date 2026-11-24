@@ -6,7 +6,7 @@ namespace card{
     {
     private:
     public:
-        DebitCard(account::DebitAccount* acc, std::string pin);
+        DebitCard(account::DebitAccount* acc, std::string pin, int month, int year);
         void makePayment(double amount, std::string pin);
         ~DebitCard();
     };
