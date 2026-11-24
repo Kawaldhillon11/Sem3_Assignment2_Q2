@@ -11,10 +11,10 @@ namespace account{
 
     void DebitAccount::withdraw(double amount){
         if(amount < 1)
-            throw new std::invalid_argument("Widthdrawal Amount cannot be less than $1");
+            throw std::invalid_argument("Widthdrawal Amount cannot be less than $1");
         
         if(amount > balance)
-            throw new std::invalid_argument("Insufficient Funds, Cannot widthdraw");
+            throw std::invalid_argument("Insufficient Funds, Cannot widthdraw");
         
         balance -= amount;
     }

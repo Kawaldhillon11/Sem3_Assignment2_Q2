@@ -12,19 +12,19 @@ namespace account{
 
     void CreditAccount::withdraw(double amount){
         if(amount < 1)
-            throw new std::invalid_argument("Widthdrawal Amount cannot be less than $1");
+            throw std::invalid_argument("Widthdrawal Amount cannot be less than $1");
         
         float newBalance = balance + amount;
         
         if(newBalance > limit)
-            throw new std::invalid_argument("Insufficient Funds, Cannot widthdraw");
+            throw std::invalid_argument("Insufficient Funds, Cannot widthdraw");
         
         balance = newBalance;
     }
 
     void CreditAccount::setCashBackEarned(double cashBack){
         if(cashBack < 0)
-            throw new std::invalid_argument("Cannot accept negative values");
+            throw std::invalid_argument("Cannot accept negative values");
         cashBackEarned += cashBack;
     }
     

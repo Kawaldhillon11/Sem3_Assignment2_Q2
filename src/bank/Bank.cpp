@@ -12,7 +12,7 @@ namespace bank{
 
     void Bank::setInstituteName(std::string instituteName){
         if(instituteName.empty())
-            throw new std::invalid_argument("Institute's Name cannot be empty");
+            throw std::invalid_argument("Institute's Name cannot be empty");
 
         name = instituteName;
     }
@@ -23,7 +23,7 @@ namespace bank{
 
     void Bank::addAccount(account::Account* acc){
         if(noOfAccounts == 10 )
-            throw new std::invalid_argument("Maximum no of accounts reached");
+            throw std::invalid_argument("Maximum no of accounts reached");
         
         accounts[noOfAccounts] = acc;
         noOfAccounts++;

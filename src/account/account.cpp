@@ -16,9 +16,9 @@ namespace account {
 
     void Account::setHolderName(std::string name){
         if(name.empty())
-            throw new std::invalid_argument("Account Holder Name cannot be Empty");
+            throw std::invalid_argument("Account Holder Name cannot be Empty");
         if(name.length() > 50)
-            throw new std::invalid_argument("Account Holder name too long");
+            throw std::invalid_argument("Account Holder name too long");
 
         accountHolder = name;
         

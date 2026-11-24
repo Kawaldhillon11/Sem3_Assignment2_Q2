@@ -2,8 +2,8 @@
 #include "includes/card/DebitCard.h"
 
 namespace card{
-    DebitCard::DebitCard(account::DebitAccount* acc, std::string pin):
-    Card::Card(acc,pin)
+    DebitCard::DebitCard(account::DebitAccount* acc, std::string pin, int month, int year):
+    Card::Card(acc, pin, month, year)
     {
     }
 

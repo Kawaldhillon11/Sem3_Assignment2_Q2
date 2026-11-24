@@ -2,15 +2,15 @@
 #include "includes/card/CreditCard.h"
 
 namespace card{
-   CreditCard::CreditCard(double cashbackPer, account::CreditAccount* acc, std::string pin) :
-    Card::Card(acc, pin)
+   CreditCard::CreditCard(double cashbackPer, account::CreditAccount* acc, std::string pin, int month, int year) :
+    Card::Card(acc, pin, month, year)
     {
         setCashBackPer(cashbackPer);
     }
 
     void CreditCard::setCashBackPer(double per){
         if(per <= 0)
-            throw new std::invalid_argument("Cashback Percentage cannot Zero or less than Zero");
+            throw std::invalid_argument("Cashback Percentage cannot Zero or less than Zero");
         
         cashbackPercent = per;
     }
