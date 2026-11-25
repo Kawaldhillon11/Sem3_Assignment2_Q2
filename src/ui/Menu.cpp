@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 
 #include "includes/ui/Menu.h"
 #include "includes/ui/Option.h"
@@ -7,18 +8,12 @@
 namespace ui {
     Menu::Menu(
         std::string menuTitle, 
-        Option* menuOptions,
-        int optionsCount,
-        std::string lastOptionTitle = "Go back", 
-        std::string emptyMenuString = "***Empty Menu***"
-    )
+        std::string lastOptionTitle, 
+        std::string emptyMenuString
+    ) : lastOption(Option(lastOptionTitle, [](void* args){static_cast<Menu*>(args)->isRunning = false;}, this))
     {
         setTitle(menuTitle);
-        options = menuOptions;
-        noOfOptions = optionsCount;
-        lastOption = lastOptionTitle;
         emptyMenu = emptyMenuString;
-
     }
 
     void Menu::setTitle(std::string menuTitle){
@@ -33,11 +28,20 @@ namespace ui {
         while (!choice_valid)
         {
             int choice; 
-            std::cout << "Select an Option From 1 to " + std::to_string(noOfOptions);
+            std::cout << "Select an Option From 1 to " + std::to_string(noOfOptions + 1) + ": ";
             std::cin >> choice;
-            if(choice < 1 || choice > noOfOptions)
+
+            if (std::cin.fail()) {
+                std::cin.clear(); 
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+                std::cout << "Invalid input! Please enter a number." << std::endl;
+                continue;
+            }
+
+            if(choice < 1 || choice > noOfOptions + 1){
                 std::cout << "Invalid Option Selected!" << std::endl;
-            
+                continue;
+            }
             return choice;
         }
         
@@ -55,6 +59,8 @@ namespace ui {
             std::cout << std::to_string(i+1) + ". " + options[i].getTitle() << std::endl;
         }
 
+        std::cout << std::to_string(noOfOptions + 1) + ". " + lastOption.getTitle() << std::endl;
+
         return Menu::getChoice();
     }
 
@@ -62,7 +68,11 @@ namespace ui {
         Menu::clearScreen();
         try
         {
-            options[index].callActionFunction();
+            if(index == noOfOptions + 1){
+                lastOption.callActionFunction();
+            } else {
+                options[index-1].callActionFunction();
+            }
         }
         catch(const std::exception& e)
         {
@@ -70,6 +80,15 @@ namespace ui {
         }
         return;
     }
+
+    void Menu::addOptions( Option* menuOptions, int optionCount){
+        if(optionCount > 0 && menuOptions != nullptr){
+            noOfOptions = optionCount;
+            options = menuOptions;
+        }
+        
+    }
+
 
     void Menu::run(){
         if(!isRunning){

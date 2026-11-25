@@ -13,7 +13,7 @@ namespace ui
             std::string title;
             Option* options;
             int noOfOptions;
-            std::string lastOption;
+            Option lastOption;
             std::string emptyMenu;
 
             bool isRunning = false;
@@ -27,12 +27,11 @@ namespace ui
         public:
             Menu(
                 std::string menuTitle, 
-                Option* menuOptions,
-                int optionsCount,
                 std::string lastOptionTitle = "Go back", 
                 std::string emptyMenuString = "***Empty Menu***"
             );
 
+            void addOptions( Option* menuOptions, int optionCount);
             void run();
             void stop();
  
