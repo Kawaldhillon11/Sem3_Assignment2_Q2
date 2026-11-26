@@ -11,6 +11,7 @@ namespace bank{
             void setInstituteName(std::string instituteName);
         public:
             Bank(std::string instituteName);
+            std::string getInstituteName();
             void addAccount(account::Account* acc);
             int getNoOfAccounts();
             account::Account* getAccount(int acountNumber);

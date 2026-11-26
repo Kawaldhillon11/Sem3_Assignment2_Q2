@@ -17,6 +17,10 @@ namespace bank{
         name = instituteName;
     }
 
+    std::string Bank::getInstituteName(){
+        return name;
+    }
+
     int Bank::getNoOfAccounts(){
         return noOfAccounts;
     }
