@@ -21,6 +21,7 @@ namespace account
         public:
             Account(std::string name);
             int getAccountNumber();
+            std::string getHolderName();
             void virtual withdraw(double amount);
 
             ~Account();
