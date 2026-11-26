@@ -11,10 +11,11 @@ namespace ui
     {
         private:
             std::string title;
-            Option* options;
-            int noOfOptions;
+            Option* options = nullptr;
+            int noOfOptions = 0;
             Option lastOption;
             std::string emptyMenu;
+            std::string details = "";
 
             bool isRunning = false;
             void setTitle(std::string menuTitle);
@@ -32,6 +33,7 @@ namespace ui
             );
 
             void addOptions( Option* menuOptions, int optionCount);
+            void setDetails(std::string menuDetails);
             void run();
             void stop();
  

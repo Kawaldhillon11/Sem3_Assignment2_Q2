@@ -25,9 +25,9 @@ namespace ui {
 
     int Menu::getChoice(){
         bool choice_valid = false;
+        int choice; 
         while (!choice_valid)
         {
-            int choice; 
             std::cout << "Select an Option From 1 to " + std::to_string(noOfOptions + 1) + ": ";
             std::cin >> choice;
 
@@ -42,16 +42,19 @@ namespace ui {
                 std::cout << "Invalid Option Selected!" << std::endl;
                 continue;
             }
-            return choice;
+            choice_valid =  true;
         }
-        
+        return choice;
     }
 
     int Menu::showOptions(){
         Menu::clearScreen();
         std::cout << "---- " + title + " -----" << std::endl;
 
-        if(noOfOptions < 2)
+        if(!details.empty())
+            std::cout << details << std::endl;
+
+        if(noOfOptions == 0)
             std::cout << emptyMenu << std::endl;
         
         for (int i = 0; i < noOfOptions; i++)
@@ -87,6 +90,10 @@ namespace ui {
             options = menuOptions;
         }
         
+    }
+
+    void Menu::setDetails(std::string menuDetails){
+        details = menuDetails;
     }
 
 
