@@ -5,6 +5,13 @@
 
 namespace ui
 {
+    Option::Option()
+    {
+        title = "";
+        action = nullptr;
+        args = nullptr;
+    }
+
     Option::Option(std::string optionTitle, void (*actionFunc)(void* args), void* funcArgs)
     {
         setTitle(optionTitle);

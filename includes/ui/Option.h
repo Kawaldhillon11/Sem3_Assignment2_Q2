@@ -15,6 +15,7 @@ namespace ui
             void setTitle(std::string optionTitle);
 
         public:
+            Option();
             Option(std::string optionTitle, void (*action)(void* args), void* args);
             std::string getTitle();
             void callActionFunction();
