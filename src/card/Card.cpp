@@ -11,7 +11,7 @@ namespace card{
     }
 
     void Card::setPin(std::string pinNumber){
-        if(pinNumber.empty() || pin.length() < 4)
+        if(pinNumber.empty() || pinNumber.length() < 4)
             throw std::invalid_argument("Please Enter a Valid Pin (4 digits)");
 
         pin = pinNumber;
@@ -22,7 +22,7 @@ namespace card{
             throw std::invalid_argument("Please Enter a Month between 1 and 12");
         
         // hardcode year check, could have gotten date from system and extraced year
-        if(2026 <= year || year >= 2036)
+        if(year < 2026 || year > 2036)
             throw std::invalid_argument("Please Enter a year between 2026 and 2036");
 
         expiryMonth = month;
@@ -38,8 +38,12 @@ namespace card{
         return cardNumber;
     }
 
+    account::Account* Card::getLinkedAccount(){
+        return linkedAccount;
+    }
+
     bool Card::validatePin(std::string pinNumber){
-        if(pinNumber.empty() || pin.length() < 4)
+        if(pinNumber.empty() || pinNumber.length() < 4)
             throw std::invalid_argument("Please Enter a Valid Pin (4 digits)");
 
         if(pin != pinNumber)

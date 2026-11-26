@@ -15,6 +15,10 @@ namespace card{
         cashbackPercent = per;
     }
 
+    double CreditCard::getCashBackPer(){
+        return cashbackPercent;
+    }
+
     void CreditCard::makePayment(double amount, std::string pin){
         Card::makePayment(amount, pin);
         static_cast<account::CreditAccount*>(Card::linkedAccount)->setCashBackEarned(amount*cashbackPercent);    
