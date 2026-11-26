@@ -16,6 +16,9 @@ namespace account
     public:
         CreditAccount(std::string name, double cardLimit);
 
+        double getLimit();
+        double getBalance();
+        double getCashBackEarned();
         void withdraw(double amount);
         void setCashBackEarned(double cashBack);
 

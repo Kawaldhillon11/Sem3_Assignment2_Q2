@@ -10,6 +10,18 @@ namespace account{
         balance = 0;
     }
 
+    double CreditAccount::getLimit(){
+        return limit;
+    }
+
+    double CreditAccount::getBalance(){
+        return balance;
+    }
+
+    double CreditAccount::getCashBackEarned(){
+        return cashBackEarned;
+    }
+
     void CreditAccount::withdraw(double amount){
         if(amount < 1)
             throw std::invalid_argument("Widthdrawal Amount cannot be less than $1");
