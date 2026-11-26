@@ -15,6 +15,8 @@ namespace account
         public:
             DebitAccount(std::string name);
 
+            double getBalance();
+            void deposit(double amount);
             void withdraw(double amount);
 
             ~DebitAccount();
